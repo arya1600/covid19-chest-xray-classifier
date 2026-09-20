@@ -1,0 +1,29 @@
+# NOT an experiment — just a 2-epoch pipeline smoke test to verify
+# scripts/train.py actually works end-to-end on real data before running
+# the real Experiment A. Its results (runs/smoke_test/) are not meaningful
+# and must never be reported as an experimental finding.
+
+name: smoke_test
+
+data:
+  manifest_path: data/manifest.csv
+  image_size: 224
+  num_channels: 1
+  mean: [0.4073]
+  std: [0.2863]
+  batch_size: 32
+  seed: 42
+  num_workers: 0
+  class_balance: loss_weight
+
+model:
+  architecture: baseline_cnn
+  in_channels: 1
+  channels: [32, 64, 128, 256]
+  dropout: 0.3
+
+train:
+  max_epochs: 2
+  patience: 5
+  learning_rate: 0.001
+  seed: 42

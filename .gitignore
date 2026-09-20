@@ -1,0 +1,52 @@
+# Data (never commit third-party medical images; re-download via scripts/)
+data/raw/
+data/processed/
+data/interim/
+*.dcm
+*.jpeg
+*.jpg
+*.png
+*.webp
+!data/manifest*.csv
+
+# Explicitly allow small documentation/report figures we generate ourselves,
+# and the real Grad-CAM overlays (derivative-permitting licenses only —
+# see scripts/run_gradcam.py, which skips ND-licensed sources automatically).
+!reports/figures/**/*.png
+!reports/gradcam/**/*.png
+!demo/assets/**/*.png
+
+# Model checkpoints: never commit (large binaries). Config/metrics/history
+# from each run ARE tracked (see !runs/**/... below) — they're the real,
+# reproducible evidence behind this project's reported numbers.
+runs/**/*.pt
+runs/**/*.pth
+runs/**/*.h5
+runs/**/*.ckpt
+checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing / tooling
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

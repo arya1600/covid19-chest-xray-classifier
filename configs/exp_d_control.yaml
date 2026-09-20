@@ -1,0 +1,36 @@
+# Experiment D (control): same-source Kermany-only NORMAL vs PNEUMONIA.
+# Purpose: a genuine pulmonary-disease classification task with ZERO
+# cross-source confound (both classes from one hospital's pipeline),
+# using the identical architecture/recipe as Experiment A, so its test
+# performance is a same-architecture reference point for how "easy" a
+# same-source CXR task looks under this pipeline. See
+# covidcxr.data.source_confound for why this, not a literal
+# "predict source_dataset" classifier, is the informative control here.
+
+name: exp_d_control
+
+data:
+  manifest_path: data/manifest_source_confound_control.csv
+  image_size: 224
+  num_channels: 1
+  mean: [0.3461]
+  std: [0.2967]
+  batch_size: 32
+  seed: 42
+  num_workers: 0
+  class_balance: loss_weight   # 1583 NORMAL vs 4273 PNEUMONIA
+  label_to_index:
+    NORMAL: 0
+    PNEUMONIA: 1
+
+model:
+  architecture: baseline_cnn
+  in_channels: 1
+  channels: [32, 64, 128, 256]
+  dropout: 0.3
+
+train:
+  max_epochs: 30
+  patience: 5
+  learning_rate: 0.001
+  seed: 42

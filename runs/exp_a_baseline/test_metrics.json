@@ -1,0 +1,47 @@
+{
+  "split": "test",
+  "n_images": 280,
+  "checkpoint": "runs\\exp_a_baseline\\best.pt",
+  "metrics": {
+    "accuracy": {
+      "value": 0.9892857142857143,
+      "ci_low": 0.975,
+      "ci_high": 1.0
+    },
+    "precision": {
+      "value": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0
+    },
+    "sensitivity": {
+      "value": 0.9032258064516129,
+      "ci_low": 0.7930675287356322,
+      "ci_high": 1.0
+    },
+    "specificity": {
+      "value": 1.0,
+      "ci_low": 1.0,
+      "ci_high": 1.0
+    },
+    "f1": {
+      "value": 0.9491525423728814,
+      "ci_low": 0.8845930232558139,
+      "ci_high": 1.0
+    },
+    "roc_auc": {
+      "value": 1.0,
+      "ci_low": 0.9999999999999999,
+      "ci_high": 1.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      249,
+      0
+    ],
+    [
+      3,
+      28
+    ]
+  ]
+}
