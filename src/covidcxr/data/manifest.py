@@ -103,7 +103,10 @@ def parse_cohen_metadata(metadata_csv: Path, images_dir: Path | None = None) -> 
             continue
 
         filename = row["filename"]
-        filepath = str(images_dir / filename) if images_dir else filename
+        # Always store forward slashes: a Windows-separator string parses
+        # as one bad filename (not nested dirs) on Linux/Mac, breaking the
+        # manifest anywhere but Windows. Path.as_posix() is safe on every OS.
+        filepath = (images_dir / filename).as_posix() if images_dir else filename
         out.append(
             {
                 "filename": filename,
@@ -157,9 +160,9 @@ def parse_kermany_directory(chest_xray_root: Path) -> tuple[list[dict], Manifest
             content_hash = hashlib.md5(path.read_bytes()).hexdigest()
             if content_hash in seen_hashes:
                 stats.kermany_duplicate_content_files += 1
-                stats.kermany_duplicate_content_pairs.append((seen_hashes[content_hash], str(path)))
+                stats.kermany_duplicate_content_pairs.append((seen_hashes[content_hash], path.as_posix()))
             else:
-                seen_hashes[content_hash] = str(path)
+                seen_hashes[content_hash] = path.as_posix()
 
             patient_id, reliable = _kermany_patient_id(path.name)
             if not reliable:
@@ -167,7 +170,7 @@ def parse_kermany_directory(chest_xray_root: Path) -> tuple[list[dict], Manifest
             out.append(
                 {
                     "filename": path.name,
-                    "filepath": str(path),
+                    "filepath": path.as_posix(),
                     "label": "NORMAL",
                     "patient_id": patient_id,
                     "patient_id_reliable": reliable,

@@ -60,7 +60,7 @@ def build_kermany_control_manifest(chest_xray_root: Path) -> pd.DataFrame:
                 rows.append(
                     {
                         "filename": path.name,
-                        "filepath": str(path),
+                        "filepath": path.as_posix(),
                         "label": label,
                         "patient_id": patient_id,
                         "patient_id_reliable": match is not None,

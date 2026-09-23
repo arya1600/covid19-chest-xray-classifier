@@ -12,13 +12,9 @@ dependencies = [
     "numpy>=1.26",
     "pandas>=2.2",
     "scikit-learn>=1.4",
-    "scipy>=1.12",
     "matplotlib>=3.8",
-    "seaborn>=0.13",
     "Pillow>=10.2",
     "PyYAML>=6.0",
-    "requests>=2.31",
-    "tqdm>=4.66",
 ]
 
 [project.optional-dependencies]
@@ -27,7 +23,6 @@ demo = [
 ]
 dev = [
     "pytest>=8.0",
-    "ruff>=0.3",
 ]
 
 [build-system]

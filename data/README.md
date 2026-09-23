@@ -106,7 +106,7 @@ from `data/manifest.csv` alone.
 
 Implemented in `src/covidcxr/data/{transforms,dataset,class_balance,
 validation,pipeline}.py`, config-driven via `covidcxr.data.pipeline.DataConfig`
-(see `configs/data_default.yaml`).
+(see the `data:` section of any experiment config, e.g. `configs/exp_a.yaml`).
 
 - **Split membership**: taken exactly from `manifest.csv`'s `split` column.
   The pipeline never re-splits or reshuffles across train/val/test —

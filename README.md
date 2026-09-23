@@ -1,5 +1,9 @@
 # COVID-19 Chest X-Ray Classification — A Reproducible Study
 
+[![Tests](https://github.com/USERNAME/covid-cxr/actions/workflows/tests.yml/badge.svg)](https://github.com/USERNAME/covid-cxr/actions/workflows/tests.yml)
+
+**Built with:** Python, PyTorch, torchvision, scikit-learn, Streamlit.
+
 **This is a research/educational project. It is not a medical device, has
 not been clinically validated, and must not be used for diagnosis.**
 
@@ -41,8 +45,9 @@ shows attention repeatedly landing on image borders and, in one case, an
 embedded text watermark rather than lung fields. An informal live test
 with an external, out-of-distribution normal X-ray was misclassified as
 COVID at 97.6% confidence, with the same border-focused attention
-pattern. Full evidence and real numbers: [`reports/model_comparison.md`](reports/model_comparison.md)
-and [`reports/error_analysis.md`](reports/error_analysis.md).
+pattern. Full evidence and real numbers: [`reports/model_comparison.md`](reports/model_comparison.md),
+[`reports/error_analysis.md`](reports/error_analysis.md), and the actual
+[Grad-CAM overlay images](reports/gradcam/).
 
 **In short: the model most likely learned to distinguish which dataset an
 image came from, not COVID-19 from a chest X-ray.** Demonstrating and

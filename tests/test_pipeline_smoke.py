@@ -9,14 +9,33 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pandas as pd
 import pytest
 
 from covidcxr.data.pipeline import DataConfig, build_dataloaders
 
 MANIFEST_PATH = Path(__file__).resolve().parents[1] / "data" / "manifest.csv"
 
+
+def _raw_images_available() -> bool:
+    """manifest.csv is committed to the repo (paths only, no pixels), but
+    the actual image files are git-ignored and only exist once someone
+    has run the acquisition scripts. Check a real path, not just the
+    manifest's existence, so this test skips cleanly in CI / a fresh
+    clone instead of failing on a missing file.
+    """
+    if not MANIFEST_PATH.exists():
+        return False
+    df = pd.read_csv(MANIFEST_PATH)
+    sample_path = Path(df["filepath"].iloc[0])
+    if not sample_path.is_absolute():
+        sample_path = MANIFEST_PATH.parent.parent / sample_path
+    return sample_path.exists()
+
+
 pytestmark = pytest.mark.skipif(
-    not MANIFEST_PATH.exists(), reason="data/manifest.csv not present — run the Phase 2 acquisition scripts first"
+    not _raw_images_available(),
+    reason="raw images not present — run scripts/download_data.py and place the Kermany archive first (see data/README.md)",
 )
 
 
