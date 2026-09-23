@@ -32,12 +32,10 @@ come from, under what terms, and how `scripts/download_data.py` /
   > Cohen, J. P., Morrison, P., & Dao, L. (2020). COVID-19 Image Data
   > Collection. *arXiv:2003.11597*.
   > https://github.com/ieee8023/covid-chestxray-dataset
-- **Why re-download rather than reuse the bundled images**: the images
-  bundled in the reference project (`aviralchharia/COVID-19`) are a subset of
-  this dataset with the `metadata.csv` stripped out — i.e., exactly the
-  `patientid` field this project needs for a leakage-free split. Re-fetching
-  from source recovers that metadata directly instead of trying to
-  reverse-engineer patient identity from filenames alone.
+- **Why fetch metadata.csv directly rather than just the images**: the
+  `patientid` field in this metadata is exactly what this project needs
+  for a leakage-free, patient-grouped split — reverse-engineering patient
+  identity from filenames alone would be unreliable.
 
 ## 2. Normal chest X-rays — Kermany et al. "Chest X-Ray Images (Pneumonia)"
 

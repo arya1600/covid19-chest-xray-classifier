@@ -1,6 +1,6 @@
 # COVID-19 Chest X-Ray Classification — A Reproducible Study
 
-[![Tests](https://github.com/USERNAME/covid-cxr/actions/workflows/tests.yml/badge.svg)](https://github.com/USERNAME/covid-cxr/actions/workflows/tests.yml)
+[![Tests](https://github.com/arya1600/covid19-chest-xray-classifier/actions/workflows/tests.yml/badge.svg)](https://github.com/arya1600/covid19-chest-xray-classifier/actions/workflows/tests.yml)
 
 **Built with:** Python, PyTorch, torchvision, scikit-learn, Streamlit.
 
@@ -9,27 +9,25 @@ not been clinically validated, and must not be used for diagnosis.**
 
 ## What this project is
 
-An independent, from-scratch reimplementation and critical re-investigation
-of a small chest X-ray (CXR) COVID-19/Normal binary classification task,
-built as a personal portfolio project. It was inspired by
-[`aviralchharia/COVID-19`](https://github.com/aviralchharia/COVID-19) (MIT
-license; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)), which was
-used only as a learning reference — every component here (data pipeline,
-splitting strategy, models, evaluation, explainability, demo) is a new
-implementation.
+A from-scratch chest X-ray (CXR) COVID-19/Normal binary classification
+pipeline, built end-to-end as a personal project: data acquisition,
+patient-grouped splitting, preprocessing, a baseline CNN, a full
+evaluation harness, a source-confound investigation, Grad-CAM
+explainability, and a demo app.
 
 ## Why this project exists
 
-An audit of the reference project found several issues common to a lot of
-2020-era "COVID-CNN" work: the validation set doubled as the test set
-(optimistic metrics), the two classes came from two structurally different
-source datasets (a possible shortcut-learning confound), and — concretely —
-some images from the *same patient case* were split across its train and
-validation folders, a real patient-level leakage bug, not a hypothetical
-one. This project rebuilds the pipeline to fix those problems and, more
-importantly, treats **"is the model learning real signal or a
-dataset-source shortcut?"** as an explicit research question — with a
-real answer, below, not just a caveat.
+A lot of 2020-era "COVID-CNN" projects built on these public datasets
+share a set of well-documented problems: validation sets doubling as
+test sets (optimistic metrics), the two classes coming from structurally
+different source datasets (a possible shortcut-learning confound), and —
+concretely, verified directly against the upstream `covid-chestxray-dataset`
+metadata — images from the *same patient case* ending up in both a
+train and a validation split, a real patient-level leakage bug, not a
+hypothetical one. This project builds the pipeline to avoid those
+problems and, more importantly, treats **"is the model learning real
+signal or a dataset-source shortcut?"** as an explicit research question
+— with a real answer, below, not just a caveat.
 
 ## Headline finding
 
@@ -117,9 +115,9 @@ licenses, required citations, and the acquisition process.
 ## License
 
 Code in this repository is released under the MIT License (see
-[`LICENSE`](LICENSE)). Third-party code inspiration, datasets, and
-pretrained weights retain their own licenses — see
-[`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). Grad-CAM overlays
+[`LICENSE`](LICENSE)). Third-party datasets and pretrained weights retain
+their own licenses — see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+Grad-CAM overlays
 published under `reports/gradcam/` are excluded automatically when their
 source image's license doesn't permit derivatives (see
 `scripts/run_gradcam.py`).
