@@ -1,7 +1,5 @@
 # COVID-19 Chest X-Ray Classification — A Reproducible Study
 
-[![Tests](https://github.com/arya1600/covid19-chest-xray-classifier/actions/workflows/tests.yml/badge.svg)](https://github.com/arya1600/covid19-chest-xray-classifier/actions/workflows/tests.yml)
-
 **Built with:** Python, PyTorch, torchvision, scikit-learn, Streamlit.
 
 **This is a research/educational project. It is not a medical device, has
