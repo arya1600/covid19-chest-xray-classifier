@@ -47,7 +47,7 @@ MODEL_DISPLAY_INFO = {
 }
 
 DISCLAIMER = (
-    "**This is a research / MSc-portfolio demo, not a medical device.** "
+    "**This is a research / portfolio demo, not a medical device.** "
     "It has not been clinically validated. Independent evaluation "
     "(`reports/`, Experiment D and Grad-CAM analysis in this project) "
     "found evidence the underlying model may partly rely on dataset-source "

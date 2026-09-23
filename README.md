@@ -11,7 +11,7 @@ not been clinically validated, and must not be used for diagnosis.**
 
 An independent, from-scratch reimplementation and critical re-investigation
 of a small chest X-ray (CXR) COVID-19/Normal binary classification task,
-built as an MSc-application portfolio project. It was inspired by
+built as a personal portfolio project. It was inspired by
 [`aviralchharia/COVID-19`](https://github.com/aviralchharia/COVID-19) (MIT
 license; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)), which was
 used only as a learning reference — every component here (data pipeline,
