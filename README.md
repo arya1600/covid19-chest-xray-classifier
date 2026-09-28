@@ -122,15 +122,14 @@ published under `reports/gradcam/` are excluded automatically when their
 source image's license doesn't permit derivatives (see
 `scripts/run_gradcam.py`).
 
-## Limitations
 
-- Both experiments use small datasets (hundreds to low thousands of
-  images); all reported metrics carry bootstrap 95% confidence intervals,
-  not bare point estimates.
-- The main task's two classes are drawn from different source datasets —
-  a confound this project measures directly (see "Headline finding"
-  above) rather than assuming away.
-- Grad-CAM is a coarse, sometimes-misleading localization method; it is
-  one piece of corroborating evidence here, not proof.
-- Not clinically validated. Not a diagnostic tool, under any
-  circumstance.
+
+
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/dc134d0b-606b-48cc-8e97-12f58fc723ba" />
+<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/71d3a8b6-4144-4421-8128-c03be712f3a7" />
+
+
+
+
+
+  
